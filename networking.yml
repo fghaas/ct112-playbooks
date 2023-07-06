@@ -1,0 +1,31 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Create network
+      openstack.cloud.network:
+        state: present
+        name: ansible_net
+
+    - name: Create subnet
+      openstack.cloud.subnet:
+        state: present
+        network_name: ansible_net
+        name: ansible_subnet
+        cidr: 10.254.254.0/24
+        gateway_ip: 10.254.254.254
+        dns_nameservers:
+          - 1.1.1.1
+          - 9.9.9.9
+
+    - name: Create router
+      openstack.cloud.router:
+        state: present
+        name: ansible_router
+        network: ext-net
+        interfaces:
+          - net: ansible_net
+            subnet: ansible_subnet
+            portip: 10.254.254.254

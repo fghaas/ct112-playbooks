@@ -1,0 +1,15 @@
+---
+- name: Update repositories package cache
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Get list of package upgrades
+  ansible.builtin.shell: 'apt list --upgradable'
+  register: apt_list_upgradable
+  changed_when: false
+
+- name: Available package upgrades
+  ansible.builtin.debug:
+    msg: '{{ apt_list_upgradable.stdout }}'
+  when: apt_list_upgradable.stdout.find('upgradable from') != -1

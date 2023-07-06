@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Generate OpenSSH keypair locally
+      community.crypto.openssh_keypair:
+        path: ansible_key
+        type: ed25519
+
+    - name: Upload local public key to remote tenant
+      openstack.cloud.keypair:
+        name: ansible_key
+        public_key_file: ansible_key.pub
+        state: present

@@ -1,0 +1,48 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - servers_specs.yml
+
+  tasks:
+    - name: Delete servers
+      openstack.cloud.server:
+        name: '{{ item.name }}'
+        delete_ips: true
+        state: absent
+      with_items: '{{ servers }}'
+
+    - name: Delete security group
+      openstack.cloud.security_group:
+        name: qaanaaq
+        state: absent
+
+    - name: Delete router
+      openstack.cloud.router:
+        name: ansible_router
+        state: absent
+
+    - name: Delete subnet
+      openstack.cloud.subnet:
+        name: ansible_subnet
+        state: absent
+
+    - name: Delete network
+      openstack.cloud.network:
+        name: ansible_net
+        state: absent
+
+    - name: Delete public key on tenant
+      openstack.cloud.keypair:
+        name: ansible_key
+        state: absent
+
+    - name: Delete local keypair
+      ansible.builtin.file:
+        path: '{{ item }}'
+        state: absent
+      with_items:
+        - 'ansible_key.pub'
+        - 'ansible_key'

@@ -1,0 +1,10 @@
+---
+- hosts: all
+
+  become: true
+
+  tasks:
+
+    - name: Include suitable role(s)
+      ansible.builtin.include_role:
+        name: 'refresh_update_{{ ansible_distribution }}'

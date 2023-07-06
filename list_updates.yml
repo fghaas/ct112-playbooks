@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: true
+  gather_facts: true
+
+  tasks:
+
+    - name: Include suitable role(s)
+      ansible.builtin.include_role:
+        name: 'list_updates_{{ ansible_distribution }}'

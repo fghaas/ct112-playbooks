@@ -1,0 +1,7 @@
+---
+
+- name: Refresh repositories & apply package updates
+  ansible.builtin.dnf:
+    name: '*'
+    state: latest
+    update_cache: true

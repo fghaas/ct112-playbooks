@@ -1,0 +1,15 @@
+---
+- name: Update repositories package cache
+  ansible.builtin.dnf:
+    update_cache: true
+
+- name: Get list of package upgrades
+  ansible.builtin.shell: dnf upgrade --assumeno
+  register: dnf_upgrades
+  changed_when: false
+  failed_when: dnf_upgrades.rc not in [0, 1]
+
+- name: Available package upgrades
+  ansible.builtin.debug:
+    msg: '{{ dnf_upgrades.stdout }}'
+  when: dnf_upgrades.stdout.find('Transaction Summary') != -1

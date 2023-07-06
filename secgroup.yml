@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Create a new security group
+      openstack.cloud.security_group:
+        name: qaanaaq
+        state: present
+        security_group_rules:
+          - ether_type: IPv6
+            direction: egress
+          - ether_type: IPv4
+            direction: egress
+          - ether_type: IPv6
+            direction: ingress
+            protocol: tcp
+          - ether_type: IPv4
+            direction: ingress
+            protocol: tcp
+          - ether_type: IPv6
+            direction: ingress
+            protocol: icmpv6
+          - ether_type: IPv4
+            direction: ingress
+            protocol: icmp
+        description: Security group for our tutorial
+
+

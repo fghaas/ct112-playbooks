@@ -1,0 +1,12 @@
+---
+
+- name: Update repositories package cache
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Apply package upgrades
+  ansible.builtin.apt:
+    upgrade: dist
+    autoremove: true
+    force_apt_get: true
