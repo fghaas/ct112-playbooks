@@ -1,5 +1,5 @@
 ---
 servers:
-  - { name: 'prestigious_pancake', image: 'f23b865f-be02-45ab-9788-522f4882bf95', flavor: 'b.2c2gb', vol_size: '24' }
-  - { name: 'quarrelsome_quarter', image: '51a586ea-7119-411d-9b1d-0c2372692afc', flavor: 'b.2c2gb', vol_size: '32' }
-  - { name: 'responsible_ravioli', image: '3b48fcf0-e634-46a3-816b-5b7d72674980', flavor: 'b.4c8gb', vol_size: '48' }
+  - { name: 'prestigious_pancake', image: 'f23b865f-be02-45ab-9788-522f4882bf95', flavor: 'b.2c2gb', vol_size: '10' }
+  - { name: 'quarrelsome_quarter', image: '51a586ea-7119-411d-9b1d-0c2372692afc', flavor: 'b.2c2gb', vol_size: '10' }
+  - { name: 'responsible_ravioli', image: '3b48fcf0-e634-46a3-816b-5b7d72674980', flavor: 'b.4c8gb', vol_size: '12' }
