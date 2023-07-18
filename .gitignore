@@ -1,0 +1,8 @@
+ansible_key
+ansible_key.pub
+ansible_router.json
+ansible_servers.json
+ansible_sg.json
+inventory_data.json
+kernel_info.txt
+server_upgrades.txt

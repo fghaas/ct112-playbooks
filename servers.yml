@@ -19,6 +19,8 @@
         key_name: ansible_key
         network: ansible_net
         auto_ip: true
-        security_groups: qaanaaq
+        security_groups: ansible_sg
+        metadata:
+          group: 'user.{{ item.default_user }}'
         wait: true
       with_items: '{{ servers }}'

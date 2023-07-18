@@ -6,7 +6,7 @@
   tasks:
     - name: Create a new security group
       openstack.cloud.security_group:
-        name: qaanaaq
+        name: ansible_sg
         state: present
         security_group_rules:
           - ether_type: IPv6
