@@ -8,7 +8,17 @@
       openstack.cloud.security_group:
         name: ansible_sg
         state: present
-        security_group_rules:
+        description: Security group for our tutorial
+
+    - name: Create security group rules
+      openstack.cloud.security_group_rule:
+        security_group: ansible_sg
+        ether_type: "{{ item.ether_type }}"
+        direction: "{{ item.direction }}"
+        protocol: "{{ item.protocol|default(omit) }}"
+        port_range_min: "{{ item.port|default(omit) }}"
+        port_range_max: "{{ item.port|default(omit) }}"
+      with_items:
           - ether_type: IPv6
             direction: egress
           - ether_type: IPv4
@@ -16,15 +26,14 @@
           - ether_type: IPv6
             direction: ingress
             protocol: tcp
+            port: 22
           - ether_type: IPv4
             direction: ingress
             protocol: tcp
+            port: 22
           - ether_type: IPv6
             direction: ingress
-            protocol: icmpv6
+            protocol: ipv6-icmp
           - ether_type: IPv4
             direction: ingress
             protocol: icmp
-        description: Security group for our tutorial
-
-
