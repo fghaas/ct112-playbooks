@@ -1,39 +1,8 @@
 ---
-- hosts: user.cloud-user
+- hosts: all
   become: true
-  remote_user: cloud-user
-  gather_facts: false
-  vars:
-    ansible_ssh_private_key_file: 'ansible_key'
-
+  gather_facts: true
   tasks:
-
     - name: Include suitable role for target distribution family
       ansible.builtin.include_role:
-        name: 'list_updates_redhat'
-
-- hosts: user.debian
-  become: true
-  remote_user: debian
-  gather_facts: false
-  vars:
-    ansible_ssh_private_key_file: 'ansible_key'
-
-  tasks:
-
-    - name: Include suitable role for target distribution family
-      ansible.builtin.include_role:
-        name: 'list_updates_debian'
-
-- hosts: user.ubuntu
-  become: true
-  remote_user: ubuntu
-  gather_facts: false
-  vars:
-    ansible_ssh_private_key_file: 'ansible_key'
-
-  tasks:
-
-    - name: Include suitable role for target distribution family
-      ansible.builtin.include_role:
-        name: 'list_updates_debian'
+        name: 'list_updates_{{ ansible_distribution }}'
