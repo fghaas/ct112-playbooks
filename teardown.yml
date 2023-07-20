@@ -38,11 +38,3 @@
       openstack.cloud.keypair:
         name: ansible_key
         state: absent
-
-    - name: Delete local keypair
-      ansible.builtin.file:
-        path: '{{ item }}'
-        state: absent
-      with_items:
-        - 'ansible_key.pub'
-        - 'ansible_key'
