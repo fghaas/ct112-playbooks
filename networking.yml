@@ -28,4 +28,3 @@
         interfaces:
           - net: ansible_net
             subnet: ansible_subnet
-            portip: 10.254.254.254
