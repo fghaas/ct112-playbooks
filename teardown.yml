@@ -16,7 +16,7 @@
 
     - name: Delete security group
       openstack.cloud.security_group:
-        name: qaanaaq
+        name: ansible_sg
         state: absent
 
     - name: Delete router
