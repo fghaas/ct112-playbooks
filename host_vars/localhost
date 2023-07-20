@@ -2,21 +2,17 @@
 servers:
   - name: 'outstanding_oatmeal'
     image: 'Rocky Linux 9 x86_64'
-    default_user: 'cloud-user'
     flavor: 'b.1c1gb'
     vol_size: 10
   - name: 'prestigious_pancake'
     image: 'Rocky Linux 9 x86_64'
-    default_user: 'cloud-user'
     flavor: 'b.1c2gb'
     vol_size: 12
   - name: 'quarrelsome_quarter'
     image: 'Debian 11 Bullseye x86_64'
-    default_user: 'debian'
     flavor: 'b.1c1gb'
     vol_size: 10
   - name: 'responsible_ravioli'
     image: 'Ubuntu 22.04 Jammy Jellyfish x86_64'
-    default_user: 'ubuntu'
     flavor: 'b.2c2gb'
     vol_size: 10

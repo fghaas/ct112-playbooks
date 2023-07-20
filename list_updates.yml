@@ -1,8 +1,8 @@
 ---
 - hosts: all
   become: true
-  gather_facts: true
+  gather_facts: false
   tasks:
     - name: Include suitable role for target distribution family
       ansible.builtin.include_role:
-        name: 'list_updates_{{ ansible_distribution }}'
+        name: 'list_updates_{{ os_distro }}'

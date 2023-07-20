@@ -2,3 +2,10 @@ plugin: openstack.cloud.openstack
 expand_hostvars: yes
 fail_on_errors: yes
 only_clouds: []
+legacy_groups: false
+compose:
+  'os_distro': 'openstack.volumes[0].volume_image_metadata.os_distro'
+keyed_groups:
+  - prefix: ''
+    key: 'os_distro'
+    separator: ''
