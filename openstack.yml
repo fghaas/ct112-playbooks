@@ -5,6 +5,7 @@ only_clouds: []
 legacy_groups: false
 compose:
   'os_distro': 'openstack.volumes[0].volume_image_metadata.os_distro'
+  'ansible_user': 'openstack.volumes[0].volume_image_metadata.image_original_user'
 keyed_groups:
   - prefix: ''
     key: 'os_distro'
