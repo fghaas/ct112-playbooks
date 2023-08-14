@@ -4,6 +4,7 @@ fail_on_errors: yes
 only_clouds: []
 legacy_groups: false
 compose:
+  'ansible_user': 'openstack.volumes[0].volume_image_metadata.image_original_user'
   'os_distro': 'openstack.volumes[0].volume_image_metadata.os_distro'
 keyed_groups:
   - prefix: ''
