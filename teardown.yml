@@ -3,9 +3,6 @@
   connection: local
   gather_facts: false
 
-  vars_files:
-    - servers_specs.yml
-
   tasks:
     - name: Delete servers
       openstack.cloud.server:
