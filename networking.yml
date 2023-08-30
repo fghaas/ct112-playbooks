@@ -16,6 +16,8 @@
         name: ansible_subnet
         cidr: 10.254.254.0/24
         gateway_ip: 10.254.254.254
+        allocation_pool_start: 10.254.254.10
+        allocation_pool_end: 10.254.254.250
         dns_nameservers:
           - 1.1.1.1
           - 9.9.9.9
